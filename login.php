@@ -36,11 +36,11 @@
 
       <div class="login-box-body">
         <div style='margin-left:120px;'>
-          <img src="dist/img/unical.png" height="80px" width="70px">
+          <img src="dist/img/" height="80px" width="70px">
 
         </div>
-        <p class="login-box-msg" style="font-size:9px;"><strong style="font-size:18px; margin-bottom:0px;">UNIVERSITY OF CALABAR</strong>
-         <br>MULTI-PURPOSE CO-OPERATIVE SOCIETY CORE</p>
+        <p class="login-box-msg" style="font-size:9px;"><strong style="font-size:18px; margin-bottom:0px;">CTRA</strong>
+         <br></p>
          <p>
            <strong>ACCESS LOGIN</strong>
          </p>
@@ -65,11 +65,11 @@
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- iCheck -->
-    <script src="../../plugins/iCheck/icheck.min.js"></script>
+    <script src="plugins/iCheck/icheck.min.js"></script>
     <script>
       $(function () {
         $('input').iCheck({

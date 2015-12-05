@@ -4,20 +4,11 @@ include('conf/db_connect.php');
 //include ('../conf/misc.php');
 connect();
 session_start();
-/*if(!isset($_SESSION['logged_in'])){
-    redirect("../login.php");
+if(!isset($_SESSION['logged_in'])){
+    redirect("login.php");
 }
 $id = $_SESSION['id'];
 $priv = $_SESSION['priv'];
-if(isset($_GET['idd'])){
-  $id = $_GET['idd'];
-  redirect("index.php?page=../profile_search&id=$id");
-}
-if(isset($_GET['idd1'])){
-  $id = $_GET['idd1'];
-  redirect("index.php?page=../account_search&id=$id");
-}
-*/
 ?>
 <html>
   <head>

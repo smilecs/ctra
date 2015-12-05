@@ -22,6 +22,8 @@ $relationship = $_POST['relay'];
 $contact = $_POST['contact'];
 $occupation = $_POST['occupation'];
 $religion = $_POST['religion'];
-query("INSERT INTO owner(occupation, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact) VALUES('$occupation', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact')");
+$num = "1";
+$date = date("Y-m-d");
+query("INSERT INTO owner(occupation, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact, date, us) VALUES('$occupation', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$date', '$num')");
 redirect("index.php");
  ?>

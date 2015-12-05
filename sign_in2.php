@@ -11,7 +11,7 @@ $pword=stripslashes($pword);
 $uname=mysql_real_escape_string($uname);
 $pword=mysql_real_escape_string($pword);
 
-$result=query("SELECT * FROM customer WHERE uname='$uname' AND pwd='$pword'");
+$result=query("SELECT * FROM account WHERE uname='$uname' AND pwd='$pword'");
 $count=mysql_num_rows($result);
 $row = mysql_fetch_array($result);
 
@@ -23,12 +23,6 @@ $priv = $row['priviledge'];
   $_SESSION['priv'] = $priv;
 switch ($priv) {
   case '0':
-    redirect('admin/index.php');
-    break;
-  case '1':
-    redirect('teller/index.php');
-    break;
-  default:
     redirect("index.php");
     break;
 }
