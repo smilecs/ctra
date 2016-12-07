@@ -16,6 +16,7 @@ $email = $row['email'];
 $state = $row['state'];
 $village = $row['village'];
 $lga = $row['lga'];
+$image = $row['image'];
 $nationality = $row['nation'];
 $nok = $row['nok'];
 $relationship = $row['relay'];
@@ -33,12 +34,18 @@ $religion = $row['religion'];?>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <img class="profile-user-img img-responsive img-circle" src="../dist/img/<?php //echo db_pic($id); ?>" alt="User profile picture">
+                  <img class="profile-user-img img-responsive img-circle" src="dist/img/<?php echo $image; ?>" alt="User profile picture">
 
                   <strong><i class="fa fa-book margin-r-5"></i>  Email</strong>
                   <p class="text-muted">
                     <?php echo $email; ?>
                   </p>
+
+                  <strong><i class="fa fa-book margin-r-5"></i>REG ID</strong>
+                  <p class="text-muted">
+                    <?php echo $id; ?>
+                  </p>
+
 
                   <hr>
 
@@ -82,7 +89,11 @@ $religion = $row['religion'];?>
           <p><?php echo $relationship; ?>
           </p>
 
+          <hr>
 
+          <strong><i class="fa fa-pencil margin-r-5"></i> </strong>
+          <p>
+          <a href="index.php?pag=register_vehicle&ownercode=<?php echo $id;?>" class="btn btn-primary">Add Vehicle </a></p>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 
@@ -190,7 +201,7 @@ $religion = $row['religion'];?>
 
                   </div><!-- /.tab-pane -->
                     <div class="tab-pane" id="loan">
-                      <?php// include('../loan_report.php'); ?>
+                      <?php include('profile_edit.php'); ?>
                     </div><!-- /.tab-pane -->
                   <!-- /.tab-pane -->
                 </div><!-- /.tab-content -->

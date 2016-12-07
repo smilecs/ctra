@@ -2,10 +2,20 @@
 require_once 'class/paginator.php';
 $sub = $_GET['query'];
 $tmp = split(" ", $sub);
+$query = " ";
+if(isset($tmp[1])){
+  $query = "SELECT * FROM driver WHERE surname LIKE '%$tmp[0]' OR first_name LIKE '%$tmp[1]'";
+
+}else {
+  //$query = "SELECT * FROM owner WHERE surname LIKE '%$tmp[0]'";
+  $query = "SELECT * FROM driver WHERE surname LIKE '%$tmp[0]' OR first_name LIKE '%$tmp[0]'";
+
+
+}
 $limit = (isset($_GET['limit'])) ? $_GET['limit'] : 25;
 $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
 $links = (isset($_GET['links'])) ? $_GET['links'] : 7;
-$query = "SELECT * FROM driver WHERE surname LIKE '%" . $tmp[0] . "%' OR first_name LIKE '%" . $tmp[1] . "%'";
+//$query = "SELECT * FROM owner WHERE surname LIKE '%$tmp[0]' OR first_name LIKE '%$tmp[1]'";
 $res = getData($limit, $page, $query);
 ?>
 

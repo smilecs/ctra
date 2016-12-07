@@ -136,15 +136,36 @@ $priv = $_SESSION['priv'];
               <ul class="treeview-menu">
                 <!--<li><a href="index.php?page=../member">Member</a></li>-->
                 <!--<li><a href="index.php?page=../interest_report">Interest</a></li>-->
-                <li><a href="index.php?pag=register_vehicle">Register</a></li>
-                <li><a href="index.php?pag=cat_view_vehicle">View</a></li>
-
-
-
+                <li><a href="index.php?pag=new_vehicleView">View</a></li>
 
               </ul>
             </li>
-            <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Admin Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <!--<li><a href="index.php?page=../member">Member</a></li>-->
+                <!--<li><a href="index.php?page=../interest_report">Interest</a></li>-->
+                <li><a href="index.php?pag=cat_view_vehicle">View</a></li>
+
+              </ul>
+            </li>
+
+            <?php if($priv == 1){?>
+              <li class="treeview">
+                <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Admin Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                  <li><a href="index.php?pag=create_account"><i class="glyphicon glyphicon-folder-open"></i> <span>Create Account</span></a></li>
+                  <li><a href="index.php?pag=view_acounts">View Accounts</a></li>
+                  <li><a href="index.php?pag=create_category">Create Category</a></li>
+                </ul>
+              </li>
+
+<?php
+}
+ ?>
+
+            <li><a href="logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                       </ul><!-- /.sidebar-menu -->
         </section>
@@ -188,7 +209,7 @@ include('dashboard.php');
 
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">CTRA</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="#">Vehicle Licensing</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->

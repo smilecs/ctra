@@ -19,13 +19,11 @@ $row = mysql_fetch_array($result);
 if($count==1){
   $_SESSION['logged_in'] = 1;
   $_SESSION['id'] = $row['id'];
-$priv = $row['priviledge'];
+  $_SESSION['name'] = $row['uname'];
+  $priv = $row['priv'];
   $_SESSION['priv'] = $priv;
-switch ($priv) {
-  case '0':
     redirect("index.php");
-    break;
-}
+
 
 }
 else {

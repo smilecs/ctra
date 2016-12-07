@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>University of Calabar</title>
+    <title>CTRA</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -35,8 +35,8 @@
 
 
       <div class="login-box-body">
-        <div style='margin-left:120px;'>
-          <img src="dist/img/" height="80px" width="70px">
+        <div style='margin-left:50px;'>
+          <img src="dist/img/download.jpeg" height="120px" width="220px">
 
         </div>
         <p class="login-box-msg" style="font-size:9px;"><strong style="font-size:18px; margin-bottom:0px;">CTRA</strong>

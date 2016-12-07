@@ -30,7 +30,12 @@
      <div class="col-xs-8">
     <label for="inputSex" class="col-sm-2 control-label">Sex</label>
     <div class="col-sm-10">
-      <input type="text" name="sex" class="form-control" id="inputSex3" placeholder="Sex">
+      <select name="sex">
+        <option value=""></option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <!--<input type="text" name="sex" class="form-control" id="inputSex3" placeholder="Sex">-->
     </div>
   </div>
     </div>
@@ -46,7 +51,12 @@
      <div class="col-xs-8">
     <label for="inputms" class="col-sm-2 control-label">Marital Status</label>
     <div class="col-sm-10">
-      <input type="text"  name="marital" class="form-control" id="inputdob3" placeholder="Marital Status">
+      <select name="marital">
+        <option value=""></option>
+        <option value="single">Single</option>
+        <option value="divorced">Divorced</option>
+        <option value="married">Married</option>
+      </select>
     </div>
   </div>
     </div>
@@ -78,7 +88,7 @@
      <div class="col-xs-8">
     <label for="email" class="col-sm-2 control-label">Email Address</label>
     <div class="col-sm-10">
-      <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+      <input type="text" name="email" class="form-control" id="email" placeholder="Email Address">
     </div>
   </div>
     </div>
@@ -151,6 +161,16 @@
 <label for="kpn" class="col-sm-2 control-label">Phone Number</label>
 <div class="col-sm-10">
 <input type="number" name="contact" class="form-control" id="relstatus" placeholder="Next of Kin Phone Number">
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="up" class="col-sm-2 control-label">Upload Photo</label>
+<div class="col-sm-10">
+    <input type="file" name="propic" /><br>
+
 </div>
 </div>
 </div>

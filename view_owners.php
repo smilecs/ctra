@@ -36,6 +36,12 @@ $res = getData($limit, $page, $query);
       </th>
       <th>Address</th>
       <th>Phone</th>
+      <th>
+        Created By
+      </th>
+      <th>
+        Date
+      </th>
     </tr>
 
   </thead>
@@ -49,6 +55,9 @@ $res = getData($limit, $page, $query);
     <td><a href="index.php?pag=profile&id=<?php echo $result['id'];?> "><?php echo $result['first_name'] . " " . $result['surname'];?></a></td>
     <td><?php echo $result['address'];?></td>
     <td><?php echo $result['fone'];?></td>
+    <td><?php echo $result['created_by']; ?></td>
+    <td><?php echo $result['date'];?></td>
+
   </tr>
   <?php
 }

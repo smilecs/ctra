@@ -1,5 +1,7 @@
 <?php
 session_start();
+$nam = $_SESSION['name'];
+
 include('conf/db_connect.php');
 connect();
 $new = " ";
@@ -32,9 +34,24 @@ $ImageName2 = $ImageDir2 . $image_tempname2;
 $driver = " ";
 $time = time();
  $driver = $surname . strtotime($time);
+ function acct($prefix){
+   for($i=0; $i<7; $i++){
+     $prefix .= rand(0, 9);
+   }
+   $result = query("SELECT * FROM driver WHERE id='$prefix'");
+   if(mysql_num_rows($result) > 0){
+     acct($prefix);
+   }else{
+     return $prefix;
+   }
+ }
+  $driver = acct("dr");
+  //$owner = $owner1 . ".jpg";
+
+
 if(move_uploaded_file($_FILES['pic']['tmp_name'],
         $ImageName)){
-          query("INSERT INTO driver(idd, date, vehicle, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact) VALUES('$driver', '$date', '$car', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact')");
+          query("INSERT INTO driver(created_by, id, idd, date, vehicle, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact) VALUES('$nam', '$driver', '$driver', '$date', '$car', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact')");
           $id = mysql_insert_id();
           //$driver = $id;
           $new = $id .".jpg";
@@ -88,7 +105,7 @@ $ImageName = $ImageDir . $image_tempname;
 
 if(move_uploaded_file($_FILES['gpic']['tmp_name'],
         $ImageName)){
-query("INSERT INTO guard(driver, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga) VALUES('$driver', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga')");
+query("INSERT INTO guard(created_by, driver, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga) VALUES('$nam', '$driver', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga')");
 $id = mysql_insert_id();
 $new = $id .".jpg";
 query("UPDATE guard SET  image='$new' WHERE id='$id'");

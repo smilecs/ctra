@@ -11,12 +11,15 @@
     </div>
     </div>
     </div>
+<?php
+$id = $_GET['ownercode'];
 
+ ?>
     <div class="form-group">
        <div class="col-xs-8">
       <label for="inputTov" class="col-sm-2 control-label">Owner ID</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputTov3" name="ownercode" placeholder="Owner ID">
+        <input type="text" class="form-control" id="inputTov3" name="ownercode" value="<?php echo $id; ?>">
       </div>
     </div>
       </div>

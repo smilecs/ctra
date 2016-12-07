@@ -57,30 +57,21 @@ return mysql_num_rows($result);
       <?php echo total_vehicles() ?>
     </td>
   </tr>
-  <tr>
+  <?php
+  $result = query("SELECT * FROM category");
+  while($row = mysql_fetch_array($result)){
+
+  ?>  <tr>
     <th>
-      Total Vehicles Colored
+      Total <?php echo $row['category']; ?>
     </th>
     <td>
-      <?php echo total_vehicle("1") ?>
+      <?php echo total_vehicle($row['id']) ?>
     </td>
   </tr>
-  <tr>
-    <th>
-      Total Vehicles Off-Colored
-    </th>
-    <td>
-      <?php echo total_vehicle("2") ?>
-    </td>
-  </tr>
-  <tr>
-    <th>
-      Total Vehicles (Tri-Cycle)
-    </th>
-    <td>
-      <?php echo total_vehicle("3") ?>
-    </td>
-  </tr>
+<?php }
+?>
+
 </table>
 </div>
 </div>

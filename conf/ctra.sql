@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2015 at 08:26 AM
+-- Generation Time: Jan 15, 2016 at 10:19 AM
 -- Server version: 5.6.27-0ubuntu0.15.04.1
 -- PHP Version: 5.6.4-4ubuntu6.4
 
@@ -19,8 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `ctra`
 --
-CREATE DATABASE IF NOT EXISTS `ctra` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ctra`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE IF NOT EXISTS `account` (
+`id` int(11) NOT NULL,
+  `uname` varchar(124) NOT NULL DEFAULT 'admin',
+  `pwd` varchar(124) NOT NULL DEFAULT '12345',
+  `priv` int(11) DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `uname`, `pwd`, `priv`) VALUES
+(1, 'admin', '12345', 1);
 
 -- --------------------------------------------------------
 
@@ -29,7 +47,6 @@ USE `ctra`;
 --
 
 CREATE TABLE IF NOT EXISTS `cars` (
-`id` int(9) unsigned zerofill NOT NULL,
   `ownercode` varchar(25) DEFAULT NULL,
   `manufactured` date DEFAULT NULL,
   `license_no` varchar(25) DEFAULT NULL,
@@ -44,15 +61,11 @@ CREATE TABLE IF NOT EXISTS `cars` (
   `insurance` varchar(124) NOT NULL,
   `image` varchar(124) NOT NULL,
   `date` date NOT NULL,
-  `category` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cars`
---
-
-INSERT INTO `cars` (`id`, `ownercode`, `manufactured`, `license_no`, `ctra_number`, `capacity`, `registration_no`, `engine_no`, `chassis_no`, `car_model`, `car_make`, `color`, `insurance`, `image`, `date`, `category`) VALUES
-(000000001, '000001', '1999-11-01', 'hut-090', NULL, '6', '0909', '09890', '09890', 'salon', 'audi', '#000000', '098', '000001.jpg', '0000-00-00', 1);
+  `category` int(11) NOT NULL DEFAULT '0',
+  `us` varchar(124) NOT NULL,
+  `idm` varchar(124) NOT NULL,
+  `created_by` varchar(124) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -81,7 +94,6 @@ INSERT INTO `category` (`id`, `category`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `driver` (
-`id` int(6) unsigned zerofill NOT NULL,
   `religion` varchar(124) NOT NULL,
   `first_name` varchar(124) NOT NULL,
   `middle_name` varchar(124) NOT NULL,
@@ -102,17 +114,12 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `contact` varchar(124) DEFAULT NULL,
   `occupation` text,
   `vehicle` int(11) NOT NULL,
-  `img` varchar(124) DEFAULT NULL,
+  `img` varchar(124) DEFAULT '0',
   `date` date NOT NULL,
-  `idd` varchar(124) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `driver`
---
-
-INSERT INTO `driver` (`id`, `religion`, `first_name`, `middle_name`, `surname`, `dob`, `address`, `sex`, `marital`, `office`, `fone`, `email`, `state`, `village`, `lga`, `nation`, `nok`, `relay`, `contact`, `occupation`, `vehicle`, `img`, `date`, `idd`) VALUES
-(000004, 'christian', 'mnnn', 'Samuel', 'mmumene', '2015-12-31', '1', 'male', 'married', '66 new airport road', '07033383068', 'mumene@gmail.com', 'nigeria', 'usumutong', 'Akampka', 'nigerian', 'me Myself and I alone', 'nok', '101', NULL, 1, '4.jpg', '0000-00-00', 'oppiwi903');
+  `idd` varchar(124) DEFAULT NULL,
+  `id` varchar(124) NOT NULL,
+  `created_by` varchar(124) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -121,7 +128,6 @@ INSERT INTO `driver` (`id`, `religion`, `first_name`, `middle_name`, `surname`, 
 --
 
 CREATE TABLE IF NOT EXISTS `guard` (
-`id` int(6) unsigned zerofill NOT NULL,
   `religion` varchar(124) NOT NULL,
   `driver` varchar(124) NOT NULL,
   `first_name` varchar(124) NOT NULL,
@@ -142,15 +148,10 @@ CREATE TABLE IF NOT EXISTS `guard` (
   `relay` varchar(124) DEFAULT NULL,
   `contact` varchar(124) DEFAULT NULL,
   `occupation` text,
-  `image` varchar(124) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `guard`
---
-
-INSERT INTO `guard` (`id`, `religion`, `driver`, `first_name`, `middle_name`, `surname`, `dob`, `address`, `sex`, `marital`, `office`, `fone`, `email`, `state`, `village`, `lga`, `nation`, `nok`, `relay`, `contact`, `occupation`, `image`) VALUES
-(000001, 'christian', 'oppiwi903', 'smile', 'poppl', 'mmumene', '2011-12-31', '1', 'male', 'married', '66 new airport road', '07033383068', 'mumene@gmail.com', 'nigeria', 'village', 'abi', NULL, NULL, NULL, NULL, NULL, '1.jpg');
+  `image` varchar(124) DEFAULT NULL,
+  `id` varchar(124) NOT NULL,
+  `created_by` varchar(124) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -159,15 +160,14 @@ INSERT INTO `guard` (`id`, `religion`, `driver`, `first_name`, `middle_name`, `s
 --
 
 CREATE TABLE IF NOT EXISTS `owner` (
-`id` int(6) unsigned zerofill NOT NULL,
-  `religion` varchar(124) NOT NULL,
+  `religion` varchar(124) DEFAULT NULL,
   `first_name` varchar(124) NOT NULL,
   `middle_name` varchar(124) NOT NULL,
   `surname` varchar(124) NOT NULL,
   `dob` date NOT NULL,
   `address` varchar(124) NOT NULL,
   `sex` varchar(24) NOT NULL,
-  `marital` varchar(24) NOT NULL,
+  `marital` varchar(24) DEFAULT NULL,
   `office` varchar(124) DEFAULT NULL,
   `fone` varchar(24) DEFAULT NULL,
   `email` varchar(124) DEFAULT NULL,
@@ -178,26 +178,29 @@ CREATE TABLE IF NOT EXISTS `owner` (
   `nok` varchar(124) DEFAULT NULL,
   `relay` varchar(124) DEFAULT NULL,
   `contact` varchar(124) DEFAULT NULL,
-  `occupation` text
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `owner`
---
-
-INSERT INTO `owner` (`id`, `religion`, `first_name`, `middle_name`, `surname`, `dob`, `address`, `sex`, `marital`, `office`, `fone`, `email`, `state`, `village`, `lga`, `nation`, `nok`, `relay`, `contact`, `occupation`) VALUES
-(000001, 'jj', 'mm', 'm', 'm', '2015-11-04', 'kk', 'k', 'k', 'k', 'k', 'k', 'k', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(000002, 'christian', 'mnnn', 'jjjj', 'mmumene', '2015-11-19', '66', 'male', 'married', '66 new airport road', '07033383068', 'mumene@gmail.com', 'nigeria', 'usumutong', 'abi', 'nigerian', 'nok', 'nok', '07033383068', 'mechanic');
+  `occupation` text,
+  `us` varchar(124) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `image` varchar(124) DEFAULT 'no',
+  `id` varchar(124) NOT NULL,
+  `created_by` varchar(124) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cars`
 --
 ALTER TABLE `cars`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `registration_no` (`registration_no`), ADD UNIQUE KEY `registration_no_2` (`registration_no`), ADD UNIQUE KEY `registration_no_3` (`registration_no`), ADD UNIQUE KEY `registration_no_4` (`registration_no`), ADD UNIQUE KEY `registration_no_5` (`registration_no`), ADD UNIQUE KEY `registration_no_6` (`registration_no`);
+ ADD UNIQUE KEY `registration_no` (`registration_no`), ADD UNIQUE KEY `registration_no_2` (`registration_no`), ADD UNIQUE KEY `registration_no_3` (`registration_no`), ADD UNIQUE KEY `registration_no_4` (`registration_no`), ADD UNIQUE KEY `registration_no_5` (`registration_no`), ADD UNIQUE KEY `registration_no_6` (`registration_no`);
 
 --
 -- Indexes for table `category`
@@ -206,52 +209,19 @@ ALTER TABLE `category`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `driver`
---
-ALTER TABLE `driver`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `guard`
---
-ALTER TABLE `guard`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `owner`
---
-ALTER TABLE `owner`
- ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `cars`
+-- AUTO_INCREMENT for table `account`
 --
-ALTER TABLE `cars`
-MODIFY `id` int(9) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `account`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `driver`
---
-ALTER TABLE `driver`
-MODIFY `id` int(6) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `guard`
---
-ALTER TABLE `guard`
-MODIFY `id` int(6) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `owner`
---
-ALTER TABLE `owner`
-MODIFY `id` int(6) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -14,7 +14,7 @@ connect();
     }
 return $query;
 }
-  function createLinks($links, $list_class, $query, $limit  = 10, $page =1){
+  function createLinks($links, $list_class, $query, $limit  = 10, $page =1, $cat=0){
     if($limit == 'all'){
       return '';
     }
@@ -28,25 +28,25 @@ return $query;
     $html       = '<ul class="' . $list_class . '">';
 
     $class      = ( $page == 1 ) ? "disabled" : "";
-    $html       .= '<li class="' . $class . '"><a href="?limit=' . $limit . '&page=' . ( $page - 1 ) . '&pag=' . $_GET['pag']  . '">&laquo;</a></li>';
+    $html       .= '<li class="' . $class . '"><a href="?cat=' . $cat . '&limit=' . $limit . '&page=' . ( $page - 1 ) . '&pag=' . $_GET['pag']  . '">&laquo;</a></li>';
 
     if ( $start > 1 ) {
-        $html   .= '<li><a href="?limit=' . $limit . '&page=1&pag=' . $_GET['pag'] . '">1</a></li>';
+        $html   .= '<li><a href="?cat=' . $cat . '&limit=' . $limit . '&page=1&pag=' . $_GET['pag'] . '">1</a></li>';
         $html   .= '<li class="disabled"><span>...</span></li>';
     }
 
     for ( $i = $start ; $i <= $end; $i++ ) {
         $class  = ( $page == $i ) ? "active" : "";
-        $html   .= '<li class="' . $class . '"><a href="?limit=' . $limit . '&page=' . $i . '&pag=' . $_GET['pag'] . '">' . $i . '</a></li>';
+        $html   .= '<li class="' . $class . '"><a href="?cat=' . $cat . '&limit=' . $limit . '&page=' . $i . '&pag=' . $_GET['pag'] . '">' . $i . '</a></li>';
     }
 
     if ( $end < $last ) {
         $html   .= '<li class="disabled"><span>...</span></li>';
-        $html   .= '<li><a href="?limit=' . $limit . '&page=' . $last . '&pag=' . $_GET['pag'] . '">' . $last . '</a></li>';
+        $html   .= '<li><a href="?cat=' . $cat . '&limit=' . $limit . '&page=' . $last . '&pag=' . $_GET['pag'] . '">' . $last . '</a></li>';
     }
 
     $class      = ( $page == $last ) ? "disabled" : "";
-    $html       .= '<li class="' . $class . '"><a href="?limit=' . $limit . '&page=' . ( $page + 1 ) . '&pag=' . $_GET['pag']  . '">&raquo;</a></li>';
+    $html       .= '<li class="' . $class . '"><a href="?cat=' . $cat . '&limit=' . $limit . '&page=' . ( $page + 1 ) . '&pag=' . $_GET['pag']  . '">&raquo;</a></li>';
 
     $html       .= '</ul>';
 

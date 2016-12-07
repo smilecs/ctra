@@ -1,17 +1,11 @@
 <?php
 require_once 'class/paginator.php';
 $sub = $_GET['query'];
-$tmp = split(" ", $sub);
+//$tmp = split(" ", $sub);
 $query = " ";
-if(isset($tmp[1])){
-  $query = "SELECT * FROM owner WHERE surname LIKE '%$tmp[0]' OR first_name LIKE '%$tmp[1]'";
 
-}else {
-  //$query = "SELECT * FROM owner WHERE surname LIKE '%$tmp[0]'";
-  $query = "SELECT * FROM owner WHERE surname LIKE '%$tmp[0]' OR first_name LIKE '%$tmp[0]'";
+$query = "SELECT * FROM car WHERE license_no ='$sub'";
 
-
-}
 $limit = (isset($_GET['limit'])) ? $_GET['limit'] : 25;
 $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
 $links = (isset($_GET['links'])) ? $_GET['links'] : 7;
@@ -23,17 +17,13 @@ $res = getData($limit, $page, $query);
 <div class="box-body no-padding">
 <table class="table">
   <thead>
+
     <tr>
       <th>
-        Vehicle Owners Table
+    Model - Make
       </th>
-    </tr>
-    <tr>
-      <th>
-        Full Name
-      </th>
-      <th>Address</th>
-      <th>Phone</th>
+      <th>License No</th>
+      <th>Engine No</th>
     </tr>
 
   </thead>
@@ -43,11 +33,11 @@ $res = getData($limit, $page, $query);
 
   while($result = mysql_fetch_array($rsult)){
     ?>
-  <tr>
-    <td><a href="index.php?pag=profile&id=<?php echo $result['id'];?> "><?php echo $result['first_name'] . " " . $result['surname'];?></a></td>
-    <td><?php echo $result['address'];?></td>
-    <td><?php echo $result['fone'];?></td>
-  </tr>
+    <tr>
+      <td><a href="index.php?pag=vehicle&vehicle=<?php echo $result['idm'];?> "><?php echo $result['car_model'] . " " . $result['car_make'];?></a></td>
+      <td><?php echo $result['license_no'];?></td>
+      <td><?php echo $result['engine_no'];?></td>
+    </tr>
   <?php
 }
 ?>
