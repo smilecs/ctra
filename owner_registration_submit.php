@@ -29,8 +29,8 @@ $date = date("Y-m-d");
 $image_tempname = $_FILES['propic']['name'];
 $ImageDir ="dist/img/";
 $ImageName = $ImageDir . $image_tempname;
-echo $ImageName;
 $driver = " ";
+$prefix = "B";
 $time = time();
 function acct($prefix){
   for($i=0; $i<7; $i++){

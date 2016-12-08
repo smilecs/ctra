@@ -93,7 +93,7 @@ $priv = $_SESSION['priv'];
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/avatar.png<?php //echo //db_pic($id); ?>" class="img-circle" alt="User Image">
+              <img src="dist/img/download.jpeg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p><?php //echo name($id); ?></p>
