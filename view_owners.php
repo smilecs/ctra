@@ -57,6 +57,7 @@ $res = getData($limit, $page, $query);
     <td><?php echo $result['fone'];?></td>
     <td><?php echo $result['created_by']; ?></td>
     <td><?php echo $result['date'];?></td>
+    <td><a href="delete.php?id=<?php echo $result['id'];?> " btn="btn btn-warning">Delete</a></td>
 
   </tr>
   <?php
