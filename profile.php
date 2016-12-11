@@ -94,6 +94,8 @@ $religion = $row['religion'];?>
           <strong><i class="fa fa-pencil margin-r-5"></i> </strong>
           <p>
           <a href="index.php?pag=register_vehicle&ownercode=<?php echo $id;?>" class="btn btn-primary">Add Vehicle </a></p>
+          <p>
+          <a href="printslip.php?id=<?php echo $id;?>" class="btn btn-primary">Print Slip</a></p>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 
