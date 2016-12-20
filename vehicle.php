@@ -11,10 +11,11 @@ $result = query("SELECT * FROM driver LEFT JOIN cars ON driver.vehicle = cars.id
 }else{
   $id = $_GET['vehicle'];
   $result = query("SELECT * FROM cars LEFT JOIN driver ON cars.idm = driver.vehicle WHERE cars.idm='$id'");
-  $reslt = query("SELECT * FROM cars WHERE ownercode='$id' ");
+  //$reslt = query("SELECT * FROM cars WHERE ownercode='$id' ");
   $cr = 1;
-  $row = mysql_fetch_array($reslt);
-  $idd = $row['idm'];
+  //$row = mysql_fetch_array($reslt);
+  //$idd = $row['idm'];
+  $idd = $id;
 
 }
 $row = mysql_fetch_array($result);
@@ -123,7 +124,7 @@ $image = $row['img'];
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#account" data-toggle="tab">Vehicles</a></li>
                   <li><a href="#loan" data-toggle="tab">Edit</a></li>
-              
+
                 </ul>
                 <div class="tab-content">
                   <div class="active tab-pane" id="account">
@@ -213,7 +214,7 @@ $image = $row['img'];
                     </div>
                     <?php
                     $result = query("SELECT * FROM guard WHERE driver='$driver'");
-                    $row = mysql_fetch_array($result);
+                    while($row = mysql_fetch_array($result)){
                     $first_name = $row['first_name'];
                     $surname = $row['surname'];
                     $middle_name = $row['middle_name'];
@@ -291,7 +292,7 @@ $image = $row['img'];
 
                                              </table>
                                            </div><!-- /.box-body -->
-                                         </div>
+                                         </div><?php }?>
 
                   </div><!-- /.tab-pane -->
 

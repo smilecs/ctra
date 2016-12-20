@@ -74,9 +74,9 @@ $occupation = $row['occupation'];
 
     <h1 style="text-align:center">Bayelsa State Government</h1><br/>
  <h1 style="text-align:center">Identity Card Data Slip</h1><br/>
-    <!--<div style="width:200px; display:inline-block; float:left;" >
-      <img src="<?php echo $newfilename; ?>" style="width:100%; height:auto"/>
-    </div>-->
+    <div style="width:200px; display:inline-block; float:left;" >
+      <img src="dist/img/<?php echo $image; ?>" style="width:100%; height:auto"/>
+    </div>
     <div style="display:inline-block; padding-left:20px">
       <small>Enrollment ID: <?php echo $prefix;?></small>
       <h1><label>NAME:</label><?php echo $first_name . "  " . $surname; ?></h1>

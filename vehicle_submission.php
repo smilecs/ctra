@@ -38,6 +38,7 @@ imagejpeg($nm, $newfilename);
 imagedestroy($animage);
 imagedestroy($nm);
 }
-redirect("index.php?pag=vehicle&vehicle=$tmm");
+//redirect("index.php?pag=vehicle&vehicle=$tmm");
+redirect("index.php?pag=profile&id=$ownercode");
 
  ?>

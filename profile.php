@@ -135,6 +135,7 @@ $religion = $row['religion'];?>
                       $engine = $row['engine_no'];
                       $insurance = $row['insurance'];
                       $img = $row['image'];
+                      $idd = $row['idm'];
 
                     ?>
 
@@ -149,7 +150,9 @@ $religion = $row['religion'];?>
                           </tr>
                           <tr>
                             <th>Vehicle</th>
-                            <td> <?php echo $model . " " . $make; ?> </td>
+
+                            <td><a href="index.php?pag=vehicle&vehicle=<?php echo $idd;?> "> <?php echo $model . " " . $make; ?> </a></td>
+
                            </tr>
                           <tr>
                             <th>Capacity</th>
@@ -191,6 +194,7 @@ $religion = $row['religion'];?>
                               <?php echo $license; ?>
                             </td>
                           </tr>
+
 
                         </table>
                       </div><!-- /.box-body -->
