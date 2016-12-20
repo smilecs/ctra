@@ -57,7 +57,6 @@ if(move_uploaded_file($_FILES['pic']['tmp_name'],
           $new = $id .".jpg";
           query("UPDATE driver SET img='$new' WHERE idd='$driver'");
           $newfilename = $ImageDir . $new;
-          echo $newfilename;
           $animage = imagecreatefromjpeg ($ImageName);
           $ox = imagesx($animage);
           $oy = imagesy($animage);
@@ -122,7 +121,7 @@ imagecopyresized($nm, $animage, 0, 0, 0, 0, $nx, $ny, $ox, $oy );
 imagejpeg($nm, $newfilename);
 imagedestroy($animage);
 imagedestroy($nm);
-
+redirect("index.php");
 
 }
 
