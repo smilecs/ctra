@@ -41,6 +41,16 @@ if(isset($_GET['vehicle'])){
             </div>
             </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-xs-8">
+                <label for="inputSurname" class="col-sm-2 control-label">BVN</label>
+                <div class="col-sm-10">
+                  <input type="text" name="bvn" class="form-control" id="inputName" placeholder="bvn">
+                </div>
+                </div>
+                </div>
+
   <div class="form-group">
      <div class="col-xs-8">
     <label for="inputSex" class="col-sm-2 control-label">Sex</label>

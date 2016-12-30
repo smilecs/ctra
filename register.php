@@ -1,6 +1,6 @@
 
 <div style="margin-center:100px;margin-top:70px;">
-<div align="center"><font size="6">VEHICLE AND OWNER REGISTRATION <br> BIODATA </font></div>
+<div align="center"><font size="6">VEHICLE OWNER REGISTRATION <br> BIODATA </font></div>
 <form class="form-horizontal" method="post" action="owner_registration_submit.php" enctype="multipart/form-data" role="form">
 <div class="form-group">
     <div class="col-xs-8">
@@ -26,6 +26,14 @@
             </div>
             </div>
             </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                <label for="inputSurname" class="col-sm-2 control-label">BVN</label>
+                <div class="col-sm-10">
+                  <input type="text" name="bvn" class="form-control" id="inputName" placeholder="BVN">
+                </div>
+                </div>
+                </div>
   <div class="form-group">
      <div class="col-xs-8">
     <label for="inputSex" class="col-sm-2 control-label">Sex</label>

@@ -16,6 +16,7 @@ $state = $row['state'];
 $village = $row['village'];
 $lga = $row['lga'];
 $nationality = $row['nation'];
+$bvn = $row['bvn'];
 $nok = $row['nok'];
 $relationship = $row['relay'];
 $contact = $row['contact'];
@@ -41,6 +42,12 @@ $vehicle = $row['vehicle'];
                     <?php echo $email; ?>
                   </p>
 
+                  <hr>
+
+                  <strong><i class="fa fa-book margin-r-5"></i>BVN</strong>
+                  <p class="text-muted">
+                    <?php echo $bvn; ?>
+                  </p>
                   <hr>
 
                   <strong><i class="fa fa-map-marker margin-r-5"></i> Phone</strong>

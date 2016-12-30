@@ -22,6 +22,7 @@ $village = $_POST['village'];
 $lga = $_POST['lga'];
 $nationality = $_POST['nation'];
 $nok = $_POST['nok'];
+$bvn = $_POST['bvn'];
 $relationship = $_POST['relay'];
 $contact = $_POST['contact'];
 $religion = $_POST['religion'];
@@ -51,7 +52,7 @@ $time = time();
 
 if(move_uploaded_file($_FILES['pic']['tmp_name'],
         $ImageName)){
-          query("INSERT INTO driver(created_by, id, idd, date, vehicle, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact) VALUES('$nam', '$driver', '$driver', '$date', '$car', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact')");
+          query("INSERT INTO driver(bvn, created_by, id, idd, date, vehicle, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact) VALUES('$bvn', '$nam', '$driver', '$driver', '$date', '$car', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact')");
           $id = mysql_insert_id();
           //$driver = $id;
           $new = $id .".jpg";
@@ -121,9 +122,9 @@ imagecopyresized($nm, $animage, 0, 0, 0, 0, $nx, $ny, $ox, $oy );
 imagejpeg($nm, $newfilename);
 imagedestroy($animage);
 imagedestroy($nm);
-redirect("index.php");
+redirect("index.php?pag=view_vehicle");
 
 }
 
-redirect("index.php");
+redirect("index.php?pag=view_vehicle");
  ?>

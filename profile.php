@@ -17,6 +17,7 @@ $state = $row['state'];
 $village = $row['village'];
 $lga = $row['lga'];
 $image = $row['image'];
+$bvn = $row['bvn'];
 $nationality = $row['nation'];
 $nok = $row['nok'];
 $relationship = $row['relay'];
@@ -45,8 +46,12 @@ $religion = $row['religion'];?>
                   <p class="text-muted">
                     <?php echo $id; ?>
                   </p>
+                  <hr>
 
-
+                  <strong><i class="fa fa-book margin-r-5"></i>BVN</strong>
+                  <p class="text-muted">
+                    <?php echo $bvn; ?>
+                  </p>
                   <hr>
 
                   <strong><i class="fa fa-map-marker margin-r-5"></i> Phone</strong>

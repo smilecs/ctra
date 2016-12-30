@@ -18,6 +18,7 @@ $email = $_POST['email'];
 $state = $_POST['state'];
 $village = $_POST['village'];
 $lga = $_POST['lga'];
+$bvn = $_POST['bvn'];
 $nationality = $_POST['nation'];
 $nok = $_POST['nok'];
 $relationship = $_POST['relay'];
@@ -48,7 +49,7 @@ function acct($prefix){
 
 if(move_uploaded_file($_FILES['propic']['tmp_name'],
         $ImageName)){
-query("INSERT INTO owner(created_by, id, image, occupation, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact, date, us) VALUES('$nam', '$owner1', '$owner', '$occupation', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact', '$date', '$num')");
+query("INSERT INTO owner(bvn, created_by, id, image, occupation, religion, first_name, surname, middle_name, dob, address, sex, marital, office, fone, email, state, village, lga, nation, nok, relay, contact, date, us) VALUES('$bvn', '$nam', '$owner1', '$owner', '$occupation', '$religion', '$first_name', '$surname', '$middle_name', '$dob', '$address', '$sex', '$marital', '$office', '$phone', '$email', '$state', '$village', '$lga', '$nationality', '$nok', '$relationship', '$contact', '$date', '$num')");
 //query("UPDATE owner SET  img_url='$new' WHERE id='$id'");
 $newfilename = $ImageDir . $owner;
 //echo $newfilename;

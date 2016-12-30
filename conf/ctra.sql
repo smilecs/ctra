@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.12deb2
+-- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 15, 2016 at 10:19 AM
--- Server version: 5.6.27-0ubuntu0.15.04.1
--- PHP Version: 5.6.4-4ubuntu6.4
+-- Host: localhost:8889
+-- Generation Time: Dec 29, 2016 at 10:48 PM
+-- Server version: 5.5.42
+-- PHP Version: 5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `ctra`
@@ -26,19 +20,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-CREATE TABLE IF NOT EXISTS `account` (
-`id` int(11) NOT NULL,
+CREATE TABLE `account` (
+  `id` int(11) NOT NULL,
   `uname` varchar(124) NOT NULL DEFAULT 'admin',
   `pwd` varchar(124) NOT NULL DEFAULT '12345',
   `priv` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `account`
---
-
-INSERT INTO `account` (`id`, `uname`, `pwd`, `priv`) VALUES
-(1, 'admin', '12345', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -46,7 +33,7 @@ INSERT INTO `account` (`id`, `uname`, `pwd`, `priv`) VALUES
 -- Table structure for table `cars`
 --
 
-CREATE TABLE IF NOT EXISTS `cars` (
+CREATE TABLE `cars` (
   `ownercode` varchar(25) DEFAULT NULL,
   `manufactured` date DEFAULT NULL,
   `license_no` varchar(25) DEFAULT NULL,
@@ -73,19 +60,10 @@ CREATE TABLE IF NOT EXISTS `cars` (
 -- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-`id` int(11) NOT NULL,
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
   `category` varchar(124) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`id`, `category`) VALUES
-(1, 'Colored'),
-(4, 'Off-color'),
-(5, 'Tri-cycle');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -93,7 +71,7 @@ INSERT INTO `category` (`id`, `category`) VALUES
 -- Table structure for table `driver`
 --
 
-CREATE TABLE IF NOT EXISTS `driver` (
+CREATE TABLE `driver` (
   `religion` varchar(124) NOT NULL,
   `first_name` varchar(124) NOT NULL,
   `middle_name` varchar(124) NOT NULL,
@@ -118,7 +96,8 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `date` date NOT NULL,
   `idd` varchar(124) DEFAULT NULL,
   `id` varchar(124) NOT NULL,
-  `created_by` varchar(124) NOT NULL
+  `created_by` varchar(124) NOT NULL,
+  `bvn` varchar(121) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -127,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
 -- Table structure for table `guard`
 --
 
-CREATE TABLE IF NOT EXISTS `guard` (
+CREATE TABLE `guard` (
   `religion` varchar(124) NOT NULL,
   `driver` varchar(124) NOT NULL,
   `first_name` varchar(124) NOT NULL,
@@ -159,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `guard` (
 -- Table structure for table `owner`
 --
 
-CREATE TABLE IF NOT EXISTS `owner` (
+CREATE TABLE `owner` (
   `religion` varchar(124) DEFAULT NULL,
   `first_name` varchar(124) NOT NULL,
   `middle_name` varchar(124) NOT NULL,
@@ -183,7 +162,8 @@ CREATE TABLE IF NOT EXISTS `owner` (
   `date` date DEFAULT NULL,
   `image` varchar(124) DEFAULT 'no',
   `id` varchar(124) NOT NULL,
-  `created_by` varchar(124) NOT NULL
+  `created_by` varchar(124) NOT NULL,
+  `bvn` varchar(124) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -194,19 +174,24 @@ CREATE TABLE IF NOT EXISTS `owner` (
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cars`
 --
 ALTER TABLE `cars`
- ADD UNIQUE KEY `registration_no` (`registration_no`), ADD UNIQUE KEY `registration_no_2` (`registration_no`), ADD UNIQUE KEY `registration_no_3` (`registration_no`), ADD UNIQUE KEY `registration_no_4` (`registration_no`), ADD UNIQUE KEY `registration_no_5` (`registration_no`), ADD UNIQUE KEY `registration_no_6` (`registration_no`);
+  ADD UNIQUE KEY `registration_no` (`registration_no`),
+  ADD UNIQUE KEY `registration_no_2` (`registration_no`),
+  ADD UNIQUE KEY `registration_no_3` (`registration_no`),
+  ADD UNIQUE KEY `registration_no_4` (`registration_no`),
+  ADD UNIQUE KEY `registration_no_5` (`registration_no`),
+  ADD UNIQUE KEY `registration_no_6` (`registration_no`);
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -216,12 +201,9 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
