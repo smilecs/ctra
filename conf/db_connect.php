@@ -1,6 +1,6 @@
 <?php
 function connect(){
-$link = mysql_connect("localhost", "root", "root")
+$link = mysql_connect("localhost", "root", "")
 or die(mysql_error());
 mysql_select_db("ctra")
 or die(mysql_error());
